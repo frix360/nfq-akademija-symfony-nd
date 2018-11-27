@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -21,10 +22,7 @@ class HomeController extends Controller
         foreach ($data as $key => $value) {
             $projects[] = [
                 'short_title' => $key,
-                'full_title' => $value->name,
-                'github_link' => 'github.com/nfqakademija/' . $key,
-                'web_link' => $key . '.projektai.nfqakademija.lt/ ',
-                'ssh' => 'ssh.' .  $key . '@deploy.nfqakademija.lt -p 2222'
+                'full_title' => $value->name
             ];
 
             foreach ($value->students as $student) {
@@ -41,9 +39,14 @@ class HomeController extends Controller
 
     /**
      * @Route("/student", name="students.show")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function show() {
+    public function show(Request $request)
+    {
+        $project = $request->query->get('project');
+        $name = $request->query->get('name');
 
-        return $this->render('students/show.html.twig');
+        return $this->render('students/show.html.twig', compact('project', 'name'));
     }
 }

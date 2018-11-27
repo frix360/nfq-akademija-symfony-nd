@@ -32,15 +32,15 @@
             <h3>{{ project.full_title }}</h3>
             <div class="panel panel-default">
                 <div>
-                    <a target="_blank" href="//{{ project.github_link }}">{{ project.github_link }}</a>
+                    <a target="_blank" href="https://github.com/nfqakademija/{{ project.short_title }}">github.com/nfqakademija/{{ project.short_title }}</a>
                     <span class="badge">GitHub</span>
                 </div>
                 <div>
-                    <a target="_blank" href="{{ "http://"  ~ project.web_link }}">{{ project.web_link }}</a>
+                    <a target="_blank" href="https://{{ project.short_title}}.projektai.nfqakademija.lt/ ">{{ project.short_title}}.projektai.nfqakademija.lt/</a>
                     <span class="badge">Web</span>
                 </div>
                 <div>
-                    <pre>{{ project.ssh }}</pre>
+                    <pre>ssh {{ project.short_title }}@deploy.nfqakademija.lt -p 2222</pre>
                 </div>
             </div>
         </li>
