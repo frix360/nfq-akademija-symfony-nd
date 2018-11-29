@@ -34,7 +34,7 @@ class HomeController extends Controller
             }
         }
 
-        return $this->render('students/index.html.twig', compact('students', 'projects'));
+        return $this->render('students/index.html.twig', ['students' => $students, 'projects' => $projects]);
     }
 
     /**
@@ -47,6 +47,6 @@ class HomeController extends Controller
         $project = $request->query->get('project');
         $name = $request->query->get('name');
 
-        return $this->render('students/show.html.twig', compact('project', 'name'));
+        return $this->render('students/show.html.twig', ['project' => $project, 'name' => $name]);
     }
 }
