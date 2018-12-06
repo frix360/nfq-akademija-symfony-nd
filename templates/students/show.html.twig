@@ -10,12 +10,12 @@
                 <th scope="row">Studentas</th>
             </tr>
             <tr>
-                <td>{{ app.request.query.get("project") }}</td>
-                <td>{{ app.request.query.get("name") }}</td>
+                <td>{{ project }}</td>
+                <td>{{ name }}</td>
             </tr>
             </tbody>
         </table>
-        {% if app.request.query.get("name") == 'Ignas Dailydė' %}
+        {% if name == 'Ignas Dailydė' %}
         <div class="alert alert-success" role="alert">
             Dešimt balų
         </div>
